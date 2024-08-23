@@ -1,1 +1,29 @@
-<p>schedule works!</p>
+<div class="max-w-3xl mx-auto my-5 bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden">
+  <div class="p-8">
+    <h1 class="text-center text-3xl font-bold text-gray-700 dark:text-gray-50">My Schedule</h1>
+    <div class="w-full mt-5">
+      <table class="table table-fixed mx-auto w-full">
+        <thead class="bg-gray-200 dark:bg-gray-700">
+        <th class="border border-gray-500 text-gray-900 dark:text-white">Hour</th>
+        <th class="border border-gray-500 text-gray-900 dark:text-white" *ngFor="let day of days">
+          <span class="block sm:hidden">{{ day.slice(0, 3) }}</span>
+          <span class="hidden sm:block">{{ day }}</span>
+        </th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let t of timeSlots">
+          <td class="border border-gray-500 text-gray-900 dark:text-white text-center">{{ t }}</td>
+          <!-- TODO : Move this sh*t to a f*cking component :P -->
+          <!--suppress JSUnusedGlobalSymbols -->
+          <td class="border relative border-gray-500 text-gray-900 dark:text-white" *ngFor="let day of days">
+            <div *ngIf="isClassScheduled(day, t)"
+            class="absolute top-0 left-0 right-0 bottom-0 bg-blue-400 w-full rounded text-center text-sm text-wrap text-clip overflow-hidden"
+            [ngStyle]="{'height': getClassDuration(day, t) * 100 + '%'}"
+            >{{getClassDetail(day, t)}}</div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
