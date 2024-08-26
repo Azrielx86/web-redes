@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import {ChildrenOutletContexts, RouterOutlet} from '@angular/router';
 import {WebHeaderComponent} from "./components/web-header/web-header.component";
 import {WebIndexComponent} from "./pages/web-index/web-index.component";
-import {retry} from "rxjs";
 import {slideInAnimation} from "./app.animations";
+import {environment} from "../environment/environment";
 
 @Component({
   selector: 'app-root',
@@ -17,6 +17,7 @@ import {slideInAnimation} from "./app.animations";
 })
 export class AppComponent {
   title = 'web-redes';
+  name = environment.name ?? "No Available";
 
   constructor(private contexts: ChildrenOutletContexts) {
   }
