@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NgClass, NgForOf, NgIf, NgStyle} from "@angular/common";
 import {ClassDataModel} from "../../models/ClassDataModel";
 import {Day} from "../../types/day";
+import {ClassCardComponent} from "../../components/class-card/class-card.component";
 
 @Component({
   selector: 'app-schedule',
@@ -10,7 +11,8 @@ import {Day} from "../../types/day";
     NgForOf,
     NgIf,
     NgClass,
-    NgStyle
+    NgStyle,
+    ClassCardComponent
   ],
   templateUrl: './schedule.component.html',
   styleUrl: './schedule.component.css'
@@ -33,8 +35,9 @@ export class ScheduleComponent implements OnInit {
           Wednesday: {
             startTime: "08:30",
             endTime: "10:00"
-          },
-        }
+          }
+        },
+        color: "bg-emerald-600"
       },
       {
         name: "Creativity",
@@ -43,7 +46,8 @@ export class ScheduleComponent implements OnInit {
             startTime: "09:00",
             endTime: "11:00"
           }
-        }
+        },
+        color: "bg-pink-600"
       },
       {
         name: "Web Development",
@@ -56,7 +60,8 @@ export class ScheduleComponent implements OnInit {
             startTime: "14:00",
             endTime: "16:00"
           }
-        }
+        },
+        color: "bg-teal-700"
       },
       {
         name: "Data Networks",
@@ -73,7 +78,8 @@ export class ScheduleComponent implements OnInit {
             startTime: "18:00",
             endTime: "20:00"
           }
-        }
+        },
+        color: "bg-blue-400"
       },
       {
         name: "Distributed Systems",
@@ -85,8 +91,9 @@ export class ScheduleComponent implements OnInit {
           Friday: {
             startTime: "11:00",
             endTime: "13:00"
-          },
-        }
+          }
+        },
+        color: "bg-violet-700"
       },
       {
         name: "Data Networks Lab",
@@ -95,7 +102,8 @@ export class ScheduleComponent implements OnInit {
             startTime: "16:00",
             endTime: "18:00"
           }
-        }
+        },
+        color: "bg-indigo-700"
       }
     ];
 
@@ -112,42 +120,12 @@ export class ScheduleComponent implements OnInit {
     }
   }
 
-  isClassScheduled = (day: Day, time: string): boolean => {
-    let cl = this.classes.find(c => {
-      let d = c.days[day];
-      if (d == undefined) return false;
-      return d.startTime == time;
-    }); // repeating this is TERRIBLE... but I can't think a better way to do it.
-    return cl != undefined;
-  };
-
-  getClassDetail = (day: Day, time: string): string => {
-    let cl = this.classes.find(c => {
+  findClasses = (day: Day, time: string): ClassDataModel | undefined => {
+    return this.classes.find(c => {
       let d = c.days[day];
       if (d == undefined) return false;
       return d.startTime == time;
     });
-    if (cl == undefined) return "";
-    let d = cl.days[day];
-    return `${cl.name} [${d?.startTime} - ${d?.endTime}]`;
-  };
-
-  getClassDuration = (day: Day, time: string): number => {
-    let cl = this.classes.find(c => {
-      let d = c.days[day];
-      if (d == undefined) return false;
-      return d.startTime == time;
-    });
-    if (cl == undefined) return 0;
-    const classTime = cl.days[day];
-    const start = this.timeToMinutes(classTime?.startTime || "00:00");
-    const end = this.timeToMinutes(classTime?.endTime || "00:00");
-    return (end - start) / 30; // Assuming 30-minute intervals
-  };
-
-  timeToMinutes = (time: string): number => {
-    const [hours, minutes] = time.split(':').map(Number);
-    return hours * 60 + minutes;
   };
 }
 

@@ -13,13 +13,8 @@
         <tbody>
         <tr *ngFor="let t of timeSlots">
           <td class="border border-gray-500 text-gray-900 dark:text-white text-center">{{ t }}</td>
-          <!-- TODO : Move this sh*t to a f*cking component :P -->
-          <!--suppress JSUnusedGlobalSymbols -->
           <td class="border relative border-gray-500 text-gray-900 dark:text-white" *ngFor="let day of days">
-            <div *ngIf="isClassScheduled(day, t)"
-            class="absolute top-0 left-0 right-0 bottom-0 bg-blue-400 w-full rounded text-center text-sm text-wrap text-clip overflow-hidden"
-            [ngStyle]="{'height': getClassDuration(day, t) * 100 + '%'}"
-            >{{getClassDetail(day, t)}}</div>
+            <app-class-card [model]="findClasses(day, t)" [classDay]="day"></app-class-card>
           </td>
         </tr>
         </tbody>
