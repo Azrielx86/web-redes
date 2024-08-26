@@ -1,5 +1,59 @@
 <div class="max-w-3xl mx-auto my-5 bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden">
   <div class="p-8">
-    <h1 class="text-center text-3xl font-bold text-gray-700 dark:text-gray-50">Curriculum</h1>
+    <h1 class="text-center text-3xl font-bold text-gray-700 dark:text-gray-50">{{ name }}</h1>
+    <div class="">
+      <div class="bg-gray-200 dark:bg-slate-600 my-4 p-4 rounded-lg">
+        <h2 class="font-bold text-xl dark:text-white">Contact</h2>
+        <div>
+          <ul class="text-gray-700 dark:text-white">
+            <li>Phone number: {{ phoneNumber }}</li>
+            <li>Email: {{ email }}</li>
+          </ul>
+        </div>
+      </div>
+      <h2 class="font-bold text-xl dark:text-white mt-3 mb-1">Profile</h2>
+      <div class="text-gray-700 dark:text-white">
+        <p>
+          Computer Engineering student, I am a person who is passionate about learning new topics about my career,
+          mainly software development. I’m interested in backend and web application development.
+        </p>
+      </div>
+      <h2 class="font-bold text-xl dark:text-white mt-3 mb-1">Education</h2>
+      <div class="text-gray-800 dark:text-white">
+        <span class="font-medium text-teal-700 dark:text-teal-500">Faculty of Engineering, UNAM</span> -
+        <span class="text-gray-600 dark:text-gray-200 italic">Computer Engineering (Ninth semester)</span><br>
+        <span class="text-sm">August 2019 - present</span>
+      </div>
+      <h2 class="font-bold text-xl dark:text-white mt-3 mb-1">Experience</h2>
+      <div class="text-gray-800 dark:text-white">
+        <span class="font-medium text-teal-700 dark:text-teal-500">Skysolutions</span> -
+        <span class="text-gray-600 dark:text-gray-200 italic">Internship</span><br>
+        <span class="text-sm">January 2024 - August 2024</span>
+      </div>
+      <h2 class="font-bold text-xl dark:text-white mt-3 mb-1">Skills</h2>
+      <div class="flex flex-col sm:flex-row m-auto justify-around text-gray-800 dark:text-white">
+        <div>
+          <ul class="list-disc list-inside">
+            <li>.NET C#</li>
+            <li>C/C++</li>
+            <li>Angular</li>
+          </ul>
+        </div>
+        <div>
+          <ul class="list-disc list-inside">
+            <li>Git</li>
+            <li>Linux</li>
+            <li>Python</li>
+          </ul>
+        </div>
+      </div>
+      <h2 class="font-bold text-xl dark:text-white mt-3 mb-1">Languages</h2>
+      <div class="text-gray-800 dark:text-white">
+        <ul class="list-disc list-inside">
+          <li>Spanish (Native)</li>
+          <li>English (~B1)</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
