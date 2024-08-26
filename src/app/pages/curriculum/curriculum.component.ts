@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {environment} from "../../../environment/environment";
 
 @Component({
   selector: 'app-curriculum',
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './curriculum.component.css'
 })
 export class CurriculumComponent {
-
+  phoneNumber: string = environment.phoneNumber ?? "No Available";
+  email: string = environment?.email ?? "No Available";
+  name: string = environment?.name ?? "No Available";
 }
