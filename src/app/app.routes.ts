@@ -8,6 +8,6 @@ export const routes: Routes = [
   {path: "", redirectTo: "index", pathMatch: "full"},
   {path: "index", component: WebIndexComponent, data: {animation: "HomePage"}},
   {path: "about-me", component: AboutMeComponent, data: {animation: "AboutPage"}},
-  {path: "cv", component: CurriculumComponent},
-  {path: "schedule", component: ScheduleComponent}
+  {path: "cv", component: CurriculumComponent, data: {animation: "CvPage"}},
+  {path: "schedule", component: ScheduleComponent, data: {animation: "SchedulePage"}}
 ];

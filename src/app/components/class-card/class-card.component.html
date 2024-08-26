@@ -1,0 +1,10 @@
+<div *ngIf="model != undefined">
+  <div
+    class="absolute top-0 left-0 right-0 bottom-0 w-full rounded text-center text-wrap text-clip overflow-hidden {{model.color }}"
+    [ngStyle]="{'height': getClassDuration() * 105 + '%'}">
+    <div class="flex flex-col items-center p-1 h-full justify-center">
+      <span class="flex text-xs text-white">[{{model.days[classDay]?.startTime}} - {{model.days[classDay]?.endTime}}]</span>
+      <span class="flex font-bold text-xs text-white">{{model.name}}</span>
+    </div>
+  </div>
+</div>

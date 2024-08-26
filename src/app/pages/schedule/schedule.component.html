@@ -1,1 +1,24 @@
-<p>schedule works!</p>
+<div class="max-w-3xl mx-auto my-5 bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden">
+  <div class="p-8">
+    <h1 class="text-center text-3xl font-bold text-gray-700 dark:text-gray-50">My Schedule</h1>
+    <div class="w-full mt-5">
+      <table class="table table-fixed mx-auto w-full">
+        <thead class="bg-gray-200 dark:bg-gray-700">
+        <th class="border border-gray-500 text-gray-900 dark:text-white">Hour</th>
+        <th class="border border-gray-500 text-gray-900 dark:text-white" *ngFor="let day of days">
+          <span class="block sm:hidden">{{ day.slice(0, 3) }}</span>
+          <span class="hidden sm:block">{{ day }}</span>
+        </th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let t of timeSlots">
+          <td class="border border-gray-500 text-gray-900 dark:text-white text-center">{{ t }}</td>
+          <td class="border relative border-gray-500 text-gray-900 dark:text-white" *ngFor="let day of days">
+            <app-class-card [model]="findClasses(day, t)" [classDay]="day"></app-class-card>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
