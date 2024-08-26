@@ -5,4 +5,5 @@ export interface ArticleModel {
   characteristics: string[];
   headerImage: string;
   imageSource: string;
+  markdownSource: string;
 }
